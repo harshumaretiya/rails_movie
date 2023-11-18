@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  pool: 5
+  username: postgres
+  password: password
+
+development:
+  <<: *default
+  database: <%= "#{repository_name}_development" %>
+
+test:
+  <<: *default
+  database: <%= "#{repository_name}_test" %>
+
+heroku:
+  <<: *default
+  database: <%= "#{repository_name}_heroku" %>
+
+staging:
+  <<: *default
+  database: <%= "#{repository_name}_staging" %>
+
+production:
+  <<: *default
+  database: <%= "#{repository_name}_production" %>
